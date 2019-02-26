@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wave/wave.dart';
-import 'package:wave/config.dart';
 
-class MicPage extends StatelessWidget {
+class MicrophonePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
