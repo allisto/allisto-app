@@ -15,12 +15,18 @@ class MicPage extends StatelessWidget {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(top : 80.0),
-              child: Text(
-                "Recording",
-                style: TextStyle(
-                    color: Colors.deepPurpleAccent[700],
-                    fontWeight: FontWeight.bold,
-                    fontSize: 40,
+              child: Hero(
+                tag: "heading",
+                child: FlatButton(
+                  onPressed: () {},
+                  child: Text(
+                    "Recording",
+                    style: TextStyle(
+                        color: Colors.deepPurpleAccent[700],
+                        fontWeight: FontWeight.bold,
+                        fontSize: 40,
+                    ),
+                  ),
                 ),
               ),
             ),
