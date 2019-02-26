@@ -10,9 +10,15 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Text(
-                "Allisto",
-                style: TextStyle(color: Colors.grey, fontSize: 40.0,fontWeight: FontWeight.bold),
+              child: Hero(
+                tag: "heading",
+                child: FlatButton(
+                  onPressed: () {},
+                  child: Text(
+                    "Allisto",
+                    style: TextStyle(color: Colors.grey, fontSize: 40.0,fontWeight: FontWeight.bold),
+                  ),
+                ),
               ),
             )
           ],
