@@ -1,4 +1,0 @@
-#Wed Feb 27 00:54:25 IST 2019
-base.0=C\:\\Users\\Tango\\AndroidStudioProjects\\Hackathons\\allisto-app\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\0
-path.0=classes.dex
-renamed.0=classes.dex
