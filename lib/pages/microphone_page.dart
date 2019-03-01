@@ -1,6 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:audio_recorder2/audio_recorder2.dart';
+import 'package:path_provider/path_provider.dart';
 
-class MicrophonePage extends StatelessWidget {
+class Microphone extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    return MicrophonePage();
+  }
+
+}
+
+class MicrophonePage extends State<Microphone> {
+  bool isRecording;
+  @override
+  void initState() {
+    record();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +49,9 @@ class MicrophonePage extends StatelessWidget {
               child: FloatingActionButton(
                 elevation: 4.0,
                 heroTag: "mic",
-                onPressed: () {
+                onPressed: () async {
+                  Recording recording = await AudioRecorder2.stop();
+                  print("Path : ${recording.path},  Format : ${recording.audioOutputFormat},  Duration : ${recording.duration},  Extension : ${recording.extension},");
                   Navigator.of(context).pop();
                 },
                 backgroundColor: Colors.white,
@@ -48,5 +66,14 @@ class MicrophonePage extends StatelessWidget {
         ),
       ),
     );
+  }
+  Future record() async {
+    isRecording = await AudioRecorder2.isRecording;
+    if(!isRecording) {
+      final path = (await getExternalStorageDirectory()).path;
+      await AudioRecorder2.start(
+          path: "$path/Recording", audioOutputFormat: AudioOutputFormat.AAC);
+      print("Recording started");
+    }
   }
 }

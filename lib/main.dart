@@ -10,7 +10,7 @@ class Allisto extends StatelessWidget {
     return MaterialApp(
       routes: <String, WidgetBuilder>{
         '/home': (context) => HomePage(),
-        '/mic': (context) => MicrophonePage(),
+        '/mic': (context) => Microphone(),
       },
       debugShowCheckedModeBanner: false,
       title: "Allisto",
