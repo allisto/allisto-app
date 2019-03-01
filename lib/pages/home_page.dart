@@ -1,3 +1,4 @@
+import 'package:audio_recorder2/audio_recorder2.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -27,8 +28,11 @@ class HomePage extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         heroTag: "mic",
-        onPressed: () {
-          Navigator.of(context).pushNamed("/mic");
+        onPressed: () async {
+          bool hasPermissions = await AudioRecorder2.hasPermissions;
+          if(hasPermissions) {
+            Navigator.of(context).pushNamed("/mic");
+          }
         },
         backgroundColor: Colors.deepPurpleAccent,
         child: Icon(Icons.mic_none,color: Colors.white,),
