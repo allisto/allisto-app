@@ -27,6 +27,8 @@ dependencies:
 
   audio_recorder2: ^1.0.3
 
+  simple_permissions: ^0.1.9
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

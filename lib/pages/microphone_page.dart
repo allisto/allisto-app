@@ -55,23 +55,28 @@ class MicrophonePage extends State<Microphone> {
                 heroTag: "mic",
                 onPressed: () async {
                   print('Stop called');
-                  Recording recording = await AudioRecorder2.stop();
-                  if (recording != null) {
-                    setState(() {
-                      recordingMessage = "Uploading to server...";
-                    });
-                    print("Path : ${recording.path},  Format : ${recording
-                        .audioOutputFormat},  Duration : ${recording
-                        .duration},  Extension : ${recording.extension},");
-                    readAudioFile(recording.path, "API URL HERE");
-                    Navigator.of(context).pop();
-                  }
-                  else{
-                    print("Recording is null");
-                    setState(() {
-                      recordingMessage = "Something is wrong. Try restarting the app";
-                    });
-                  }
+                  setState(() {
+                    recordingMessage = "Finishing up";
+                  });
+                  AudioRecorder2.stop().then((recording) {
+                    if (recording != null) {
+                      setState(() {
+                        recordingMessage = "Uploading to server...";
+                      });
+                      print("Path : ${recording.path},  Format : ${recording
+                          .audioOutputFormat},  Duration : ${recording
+                          .duration},  Extension : ${recording.extension},");
+                      readAudioFile(recording.path, "API URL HERE");
+                      Navigator.of(context).pop();
+                    }
+                    else {
+                      print("Recording is null");
+                      setState(() {
+                        recordingMessage =
+                        "Something is wrong. Try restarting the app";
+                      });
+                    }
+                  });
                 },
                 backgroundColor: Colors.white,
                 child: Icon(
@@ -91,17 +96,15 @@ class MicrophonePage extends State<Microphone> {
     if(!isRecording) {
       final path = (await getApplicationDocumentsDirectory()).path;
       File file = new File("$path/Recording.m4a");
-      if(file!=null)
-        file.delete(recursive: false);
-      await AudioRecorder2.start(
-          path: "$path/Recording", audioOutputFormat: AudioOutputFormat.AAC);
-      print("Recording started");
-      isRecording = await AudioRecorder2.isRecording;
-      setState(() {
-        if (isRecording)
+      if (file != null && await file.exists())
+        await file.delete();
+      AudioRecorder2.start(
+          path: "$path/Recording", audioOutputFormat: AudioOutputFormat.AAC)
+          .whenComplete(() {
+        setState(() {
           recordingMessage = "Recording";
-        else
-          recordingMessage = "Something Went Wrong";
+        });
+        print("Recording started");
       });
     }
     else {
