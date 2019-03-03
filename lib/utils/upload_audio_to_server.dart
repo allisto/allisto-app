@@ -7,7 +7,7 @@ void readAudioFile(String filePath, String apiUrl) async {
   var config = File(filePath);
 
   var audioFile = await config.readAsBytes();
-  File _audioFile; // TODO
+  File _audioFile = new File(filePath); // TODO
   Dio dio = Dio();
   FormData formData = FormData(); // just like JS
   formData.add("audio", UploadFileInfo(_audioFile, basename(filePath)));
