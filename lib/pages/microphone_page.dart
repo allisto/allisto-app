@@ -1,3 +1,4 @@
+import 'package:allisto_app/utils/upload_audio_to_server.dart';
 import 'package:flutter/material.dart';
 import 'package:audio_recorder2/audio_recorder2.dart';
 import 'package:path_provider/path_provider.dart';
@@ -50,8 +51,10 @@ class MicrophonePage extends State<Microphone> {
                 elevation: 4.0,
                 heroTag: "mic",
                 onPressed: () async {
+                  print('Stop called');
                   Recording recording = await AudioRecorder2.stop();
                   print("Path : ${recording.path},  Format : ${recording.audioOutputFormat},  Duration : ${recording.duration},  Extension : ${recording.extension},");
+                  readAudioFile(recording.path, "API URL HERE");
                   Navigator.of(context).pop();
                 },
                 backgroundColor: Colors.white,
