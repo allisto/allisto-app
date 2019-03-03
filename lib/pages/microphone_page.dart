@@ -1,6 +1,8 @@
+import 'dart:io';
+
 import 'package:allisto_app/utils/upload_audio_to_server.dart';
-import 'package:flutter/material.dart';
 import 'package:audio_recorder2/audio_recorder2.dart';
+import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
 class Microphone extends StatefulWidget{
@@ -13,8 +15,10 @@ class Microphone extends StatefulWidget{
 
 class MicrophonePage extends State<Microphone> {
   bool isRecording;
+  String recordingMessage;
   @override
   void initState() {
+    recordingMessage = "Getting Ready";
     record();
     super.initState();
   }
@@ -34,8 +38,7 @@ class MicrophonePage extends State<Microphone> {
                 tag: "heading",
                 child: FlatButton(
                   onPressed: () {},
-                  child: Text(
-                    "Recording",
+                  child: Text(recordingMessage,
                     style: TextStyle(
                         color: Colors.deepPurpleAccent[700],
                         fontWeight: FontWeight.bold,
@@ -53,9 +56,22 @@ class MicrophonePage extends State<Microphone> {
                 onPressed: () async {
                   print('Stop called');
                   Recording recording = await AudioRecorder2.stop();
-                  print("Path : ${recording.path},  Format : ${recording.audioOutputFormat},  Duration : ${recording.duration},  Extension : ${recording.extension},");
-                  readAudioFile(recording.path, "API URL HERE");
-                  Navigator.of(context).pop();
+                  if (recording != null) {
+                    setState(() {
+                      recordingMessage = "Uploading to server...";
+                    });
+                    print("Path : ${recording.path},  Format : ${recording
+                        .audioOutputFormat},  Duration : ${recording
+                        .duration},  Extension : ${recording.extension},");
+                    readAudioFile(recording.path, "API URL HERE");
+                    Navigator.of(context).pop();
+                  }
+                  else{
+                    print("Recording is null");
+                    setState(() {
+                      recordingMessage = "Something is wrong. Try restarting the app";
+                    });
+                  }
                 },
                 backgroundColor: Colors.white,
                 child: Icon(
@@ -73,10 +89,26 @@ class MicrophonePage extends State<Microphone> {
   Future record() async {
     isRecording = await AudioRecorder2.isRecording;
     if(!isRecording) {
-      final path = (await getExternalStorageDirectory()).path;
+      final path = (await getApplicationDocumentsDirectory()).path;
+      File file = new File("$path/Recording.m4a");
+      if(file!=null)
+        file.delete(recursive: false);
       await AudioRecorder2.start(
           path: "$path/Recording", audioOutputFormat: AudioOutputFormat.AAC);
       print("Recording started");
+      isRecording = await AudioRecorder2.isRecording;
+      setState(() {
+        if (isRecording)
+          recordingMessage = "Recording";
+        else
+          recordingMessage = "Something Went Wrong";
+      });
+    }
+    else {
+      print("Already recording");
+      setState(() {
+        recordingMessage = "Something is wrong. Try restarting the app";
+      });
     }
   }
 }
