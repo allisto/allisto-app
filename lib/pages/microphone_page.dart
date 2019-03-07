@@ -3,9 +3,11 @@ import 'dart:io';
 import 'package:allisto_app/utils/upload_audio_to_server.dart';
 import 'package:audio_recorder2/audio_recorder2.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttie/fluttie.dart';
 import 'package:path_provider/path_provider.dart';
 
 class Microphone extends StatefulWidget{
+
   @override
   State<StatefulWidget> createState() {
     return MicrophonePage();
@@ -16,8 +18,13 @@ class Microphone extends StatefulWidget{
 class MicrophonePage extends State<Microphone> {
   bool isRecording;
   String recordingMessage;
+
+  int emojiComposition;
+  FluttieAnimationController emojiAnimation;
+
   @override
   void initState() {
+    animation();
     recordingMessage = "Getting Ready";
     record();
     super.initState();
@@ -49,6 +56,9 @@ class MicrophonePage extends State<Microphone> {
               ),
             ),
             Padding(
+              padding: EdgeInsets.all(8.0),
+              child: FluttieAnimation(emojiAnimation),),
+            Padding(
               padding: EdgeInsets.only(bottom: 60.0),
               child: FloatingActionButton(
                 elevation: 4.0,
@@ -58,6 +68,8 @@ class MicrophonePage extends State<Microphone> {
                   setState(() {
                     recordingMessage = "Finishing up";
                   });
+                  if (emojiAnimation != null)
+                    emojiAnimation.stopAndReset(rewind: true);
                   AudioRecorder2.stop().then((recording) {
                     if (recording != null) {
                       setState(() {
@@ -66,7 +78,8 @@ class MicrophonePage extends State<Microphone> {
                       print("Path : ${recording.path},  Format : ${recording
                           .audioOutputFormat},  Duration : ${recording
                           .duration},  Extension : ${recording.extension},");
-                      readAudioFile(recording.path, "API URL HERE");
+                      readAudioFile(recording.path,
+                          "https://projectallisto.pythonanywhere.com/api/v1/audio");
                       Navigator.of(context).pop();
                     }
                     else {
@@ -101,17 +114,29 @@ class MicrophonePage extends State<Microphone> {
       AudioRecorder2.start(
           path: "$path/Recording", audioOutputFormat: AudioOutputFormat.AAC)
           .whenComplete(() {
+        print("Recording starting");
         setState(() {
           recordingMessage = "Recording";
         });
+        if (emojiAnimation != null)
+          emojiAnimation.start();
         print("Recording started");
       });
     }
     else {
       print("Already recording");
       setState(() {
+        emojiAnimation.stopAndReset(rewind: true);
         recordingMessage = "Something is wrong. Try restarting the app";
       });
     }
+  }
+
+  Future animation() async {
+    var instance = Fluttie();
+    emojiComposition = await instance.loadAnimationFromAsset(
+      "assets/animations/voice.json",);
+    //Replace this string with your actual file
+    emojiAnimation = await instance.prepareAnimation(emojiComposition);
   }
 }
