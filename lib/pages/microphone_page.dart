@@ -79,7 +79,7 @@ class MicrophonePage extends State<Microphone> {
                           .audioOutputFormat},  Duration : ${recording
                           .duration},  Extension : ${recording.extension},");
                       readAudioFile(recording.path,
-                          "https://projectallisto.pythonanywhere.com/api/v1/audio");
+                          "https://projectallisto.pythonanywhere.com/api/v1");
                       Navigator.of(context).pop();
                     }
                     else {
