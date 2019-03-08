@@ -46,10 +46,10 @@ class HomePage extends StatelessWidget {
               await SimplePermissions.requestPermission(
                   Permission.WriteExternalStorage);
             }
-          }
-          hasPermissions = await AudioRecorder2.hasPermissions;
-          if(hasPermissions) {
-            Navigator.of(context).pushNamed("/mic");
+            hasPermissions = await AudioRecorder2.hasPermissions;
+            if (hasPermissions) {
+              Navigator.of(context).pushNamed("/mic");
+            }
           }
         },
         backgroundColor: Colors.deepPurpleAccent,
