@@ -3,6 +3,7 @@ package io.flutter.plugins;
 import io.flutter.plugin.common.PluginRegistry;
 import audiorecorder2.audiorecorder2.AudioRecorder2Plugin;
 import com.flutter_webview_plugin.FlutterWebviewPlugin;
+import de.simolus3.fluttie.FluttiePlugin;
 import io.flutter.plugins.pathprovider.PathProviderPlugin;
 import com.ethras.simplepermissions.SimplePermissionsPlugin;
 
@@ -16,6 +17,7 @@ public final class GeneratedPluginRegistrant {
     }
     AudioRecorder2Plugin.registerWith(registry.registrarFor("audiorecorder2.audiorecorder2.AudioRecorder2Plugin"));
     FlutterWebviewPlugin.registerWith(registry.registrarFor("com.flutter_webview_plugin.FlutterWebviewPlugin"));
+    FluttiePlugin.registerWith(registry.registrarFor("de.simolus3.fluttie.FluttiePlugin"));
     PathProviderPlugin.registerWith(registry.registrarFor("io.flutter.plugins.pathprovider.PathProviderPlugin"));
     SimplePermissionsPlugin.registerWith(registry.registrarFor("com.ethras.simplepermissions.SimplePermissionsPlugin"));
   }
