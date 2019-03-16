@@ -73,7 +73,9 @@ class HomePage extends StatelessWidget {
                 Icons.perm_contact_calendar,
                 color: Colors.deepPurpleAccent,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed("/assistant");
+              },
             )
           ],
         ),

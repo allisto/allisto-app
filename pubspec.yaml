@@ -17,9 +17,9 @@ dependencies:
   flutter:
     sdk: flutter
   wave: ^0.0.8
-  http: ^0.12.0+1
+  http: ^0.11.3+16
   dio: any
-  flutter_webview_plugin: any
+  flutter_dialogflow: ^0.1.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -28,7 +28,7 @@ dependencies:
 
   audio_recorder2: ^1.0.3
 
-  simple_permissions: ^0.1.9
+  simple_permissions: any
 
   fluttie: ^0.3.0
 
