@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:allisto_app/pages/home_page.dart';
 import 'pages/microphone_page.dart';
 import 'package:allisto_app/pages/medical_assistant.dart';
+import 'package:allisto_app/pages/news_list_page.dart';
+import 'package:allisto_app/pages/news_detail_page.dart';
+
 void main() => runApp(Allisto());
 
 class Allisto extends StatelessWidget {
@@ -12,6 +15,8 @@ class Allisto extends StatelessWidget {
         '/home': (context) => HomePage(),
         '/mic': (context) => Microphone(),
         '/assistant': (context) => Assistant(),
+        '/news_list': (context) => NewsList(),
+        '/news_detail' : (BuildContext context) => NewsDetailPage()
       },
       debugShowCheckedModeBanner: false,
       title: "Allisto",

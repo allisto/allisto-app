@@ -66,7 +66,9 @@ class HomePage extends StatelessWidget {
                 Icons.dashboard,
                 color: Colors.deepPurpleAccent,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed("/news_list");
+              },
             ),
             IconButton(
               icon: Icon(
