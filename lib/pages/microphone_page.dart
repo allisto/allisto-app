@@ -109,12 +109,14 @@ class MicrophonePage extends State<Microphone> {
     if(!isRecording) {
       final path = (await getApplicationDocumentsDirectory()).path;
 
-      File file = new File("$path/Recording.m4a");
+      final String recordingName = "Recording-"+DateTime.now().toIso8601String();
+
+      File file = new File("$path/$recordingName.m4a");
       if (file != null && await file.exists())
         await file.delete();
 
       AudioRecorder2.start(
-          path: "$path/Recording", audioOutputFormat: AudioOutputFormat.AAC)
+          path: "$path/$recordingName", audioOutputFormat: AudioOutputFormat.AAC)
           .whenComplete(() {
         setState(() {
           recordingMessage = "Recording";
