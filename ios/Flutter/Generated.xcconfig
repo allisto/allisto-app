@@ -1,9 +1,9 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=/home/rshrc/development/flutter
-FLUTTER_APPLICATION_PATH=/home/rshrc/Desktop/Projects/Allisto/allisto_app
+FLUTTER_ROOT=/home/yash/flutter/flutter
+FLUTTER_APPLICATION_PATH=/home/yash/android-projects/allisto-app
 FLUTTER_TARGET=lib/main.dart
 FLUTTER_BUILD_DIR=build
 SYMROOT=${SOURCE_ROOT}/../build/ios
-FLUTTER_FRAMEWORK_DIR=/home/rshrc/development/flutter/bin/cache/artifacts/engine/ios
-FLUTTER_BUILD_NAME=1.0.0
-FLUTTER_BUILD_NUMBER=1
+FLUTTER_FRAMEWORK_DIR=/home/yash/flutter/flutter/bin/cache/artifacts/engine/ios
+FLUTTER_BUILD_NAME=0.8.0
+FLUTTER_BUILD_NUMBER=800
