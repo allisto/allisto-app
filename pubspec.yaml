@@ -28,7 +28,7 @@ dependencies:
 
   audio_recorder2: ^1.0.3
 
-  simple_permissions: any
+  simple_permissions: 0.1.7
 
   fluttie: ^0.3.0
 
