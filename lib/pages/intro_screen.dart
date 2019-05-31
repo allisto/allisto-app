@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
-import 'package:allisto_app/pages/home_page.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 class IntroScreen extends StatefulWidget {
   IntroScreen({Key key}) : super(key: key);
@@ -20,14 +20,14 @@ class IntroScreenState extends State<IntroScreen> {
       Slide(
         title: "Autism",
         styleTitle: TextStyle(
-            color: Color(0xff3da4ab),
+            color: Colors.indigo,
             fontSize: 30.0,
             fontWeight: FontWeight.bold,
             fontFamily: 'RobotoMono'),
         description:
             "Treat your infant's autism at with Allisto :)",
         styleDescription: TextStyle(
-            color: Color(0xfffe9c8f),
+            color: Colors.pink,
             fontSize: 20.0,
             fontStyle: FontStyle.italic,
             fontFamily: 'Raleway'),
@@ -38,14 +38,14 @@ class IntroScreenState extends State<IntroScreen> {
       Slide(
         title: "Diagnosis at Home",
         styleTitle: TextStyle(
-            color: Color(0xff3da4ab),
+            color: Colors.indigo,
             fontSize: 30.0,
             fontWeight: FontWeight.bold,
             fontFamily: 'RobotoMono'),
         description:
             "Early and easy diagnosis right at your home.",
         styleDescription: TextStyle(
-            color: Color(0xfffe9c8f),
+            color: Colors.pink,
             fontSize: 20.0,
             fontStyle: FontStyle.italic,
             fontFamily: 'Raleway'),
@@ -56,14 +56,14 @@ class IntroScreenState extends State<IntroScreen> {
       Slide(
         title: "AI powered",
         styleTitle: TextStyle(
-            color: Color(0xff3da4ab),
+            color: Colors.indigo,
             fontSize: 30.0,
             fontWeight: FontWeight.bold,
             fontFamily: 'RobotoMono'),
         description:
             "Powered and accompnaied by a smart AI",
         styleDescription: TextStyle(
-            color: Color(0xfffe9c8f),
+            color: Colors.pink,
             fontSize: 20.0,
             fontStyle: FontStyle.italic,
             fontFamily: 'Raleway'),
@@ -84,7 +84,7 @@ class IntroScreenState extends State<IntroScreen> {
   Widget renderNextBtn() {
     return Icon(
       Icons.navigate_next,
-      color: Color(0xffffcc5c),
+      color: Colors.white,
       size: 35.0,
     );
   }
@@ -95,16 +95,17 @@ class IntroScreenState extends State<IntroScreen> {
         Navigator.of(context).pushNamed('/home');
       },
       icon: Icon(
-        Icons.done,
-        color: Colors.indigo,
+        EvaIcons.doneAllOutline,
+        color: Colors.white,
       ),
+      tooltip: "Skip to Home",
     );
   }
 
   Widget renderSkipBtn() {
     return Icon(
-      Icons.skip_next,
-      color: Colors.indigo,
+      EvaIcons.rewindRightOutline,
+      color: Colors.white,
     );
   }
 
@@ -160,8 +161,8 @@ class IntroScreenState extends State<IntroScreen> {
 
       // Skip button
       renderSkipBtn: this.renderSkipBtn(),
-      colorSkipBtn: Color(0x33ffcc5c),
-      highlightColorSkipBtn: Color(0xffffcc5c),
+      colorSkipBtn: Colors.indigo,
+      highlightColorSkipBtn: Colors.pink,
 
       // Next button
       renderNextBtn: this.renderNextBtn(),
@@ -171,12 +172,12 @@ class IntroScreenState extends State<IntroScreen> {
 //      onDonePress: (){
 //        Navigator.of(context).pushNamed('home/');
 //      },
-      colorDoneBtn: Color(0x33ffcc5c),
-      highlightColorDoneBtn: Color(0xffffcc5c),
+      colorDoneBtn: Colors.indigo,
+      highlightColorDoneBtn: Colors.pink,
 
       // Dot indicator
-      colorDot: Color(0x33ffcc5c),
-      colorActiveDot: Color(0xffffcc5c),
+      colorDot: Colors.indigo,
+      colorActiveDot: Colors.pink,
       sizeDot: 13.0,
 
       // List custom tabs

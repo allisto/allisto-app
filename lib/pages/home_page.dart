@@ -1,6 +1,8 @@
 import 'package:audio_recorder2/audio_recorder2.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_permissions/simple_permissions.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -61,23 +63,31 @@ class HomePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.dashboard,
-                color: Colors.deepPurpleAccent,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: IconButton(
+                icon: Icon(
+                  FontAwesomeIcons.podcast,
+                  color: Colors.deepPurpleAccent,
+                ),
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/news_list");
+                },
+                tooltip: "Medical News",
               ),
-              onPressed: () {
-                Navigator.of(context).pushNamed("/news_list");
-              },
             ),
-            IconButton(
-              icon: Icon(
-                Icons.perm_contact_calendar,
-                color: Colors.deepPurpleAccent,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: IconButton(
+                icon: Icon(
+                  EvaIcons.messageCircleOutline,
+                  color: Colors.deepPurpleAccent,
+                ),
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/assistant");
+                },
+                tooltip: "AI Assistant",
               ),
-              onPressed: () {
-                Navigator.of(context).pushNamed("/assistant");
-              },
             )
           ],
         ),

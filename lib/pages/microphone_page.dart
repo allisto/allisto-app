@@ -4,6 +4,7 @@ import 'package:allisto_app/utils/upload_audio_to_server.dart';
 import 'package:audio_recorder2/audio_recorder2.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'dart:async';
 
 class Microphone extends StatefulWidget{
 

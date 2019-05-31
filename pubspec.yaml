@@ -33,6 +33,10 @@ dependencies:
 
   fluttie: ^0.3.0
 
+  eva_icons_flutter:
+
+  font_awesome_flutter:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
