@@ -20,6 +20,7 @@ dependencies:
   http: ^0.11.3+16
   dio: any
   flutter_dialogflow: ^0.1.0
+  intro_slider: ^2.0.3
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -64,7 +65,15 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  fonts:
+    - family: RobotoMono
+      fonts:
+        - asset: fonts/RobotoMono-Regular.ttf
+        - asset: fonts/RobotoMono-Bold.ttf
+    - family: Raleway
+      fonts:
+        - asset: fonts/Raleway-Regular.ttf
+        - asset: fonts/Raleway-Bold.ttf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
