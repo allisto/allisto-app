@@ -82,6 +82,7 @@ class _HomePageState extends State<HomePage>
                       // Redirect to Gihub Repo/Organization
                     } else if(index == 1) {
                       // Redirect to Team Page
+                      Navigator.of(context).pushNamed('/team_page');
                     } else {
                       // Recording through mic
                       setState(() {
@@ -163,9 +164,10 @@ class _HomePageState extends State<HomePage>
                   color: Colors.deepPurpleAccent,
                 ),
                 onPressed: () {
-                  Navigator.of(context).pushNamed("/s_list");
+                  print("News List");
+                  Navigator.of(context).pushNamed("/news_list");
                 },
-                tooltip: "Medical s",
+                tooltip: "Medical News",
               ),
             ),
             Padding(
@@ -176,6 +178,7 @@ class _HomePageState extends State<HomePage>
                   color: Colors.deepPurpleAccent,
                 ),
                 onPressed: () {
+                  print("Assistant");
                   Navigator.of(context).pushNamed("/assistant");
                 },
                 tooltip: "AI Assistant",
