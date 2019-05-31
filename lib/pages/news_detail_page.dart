@@ -18,6 +18,8 @@ class _NewsDetailPageState extends State<NewsDetailPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Med News"),
+        centerTitle: true,
+        backgroundColor: Colors.indigo,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:allisto_app/pages/news_detail_page.dart';
 import 'dart:async';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 class NewsList extends StatefulWidget {
   @override
@@ -34,6 +35,17 @@ class _NewsListState extends State<NewsList> {
       appBar: AppBar(
         title: Text("Allisto Headlines"),
         centerTitle: true,
+        backgroundColor: Colors.indigo,
+        actions: <Widget>[
+          IconButton(
+            onPressed: (){
+              // Refresh News
+            },
+            icon: Icon(EvaIcons.sync),
+            tooltip: "Refresh",
+          ),
+
+        ],
       ),
       body: _isLoading
           ? Center(

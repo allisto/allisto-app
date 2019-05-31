@@ -5,6 +5,7 @@ import 'package:audio_recorder2/audio_recorder2.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:async';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 class Microphone extends StatefulWidget{
 
@@ -55,9 +56,6 @@ class MicrophonePage extends State<Microphone> {
                 ),
               ),
             ),
-//            Padding(
-//              padding: EdgeInsets.all(8.0),
-//              child: FluttieAnimation(emojiAnimation),),
             Padding(
               padding: EdgeInsets.only(bottom: 60.0),
               child: FloatingActionButton(
@@ -68,8 +66,6 @@ class MicrophonePage extends State<Microphone> {
                   setState(() {
                     recordingMessage = "Finishing up";
                   });
-//                  if (emojiAnimation != null)
-//                    emojiAnimation.stopAndReset(rewind: true);
                   AudioRecorder2.stop().then((recording) {
                     if (recording != null) {
                       setState(() {
@@ -93,7 +89,7 @@ class MicrophonePage extends State<Microphone> {
                 },
                 backgroundColor: Colors.white,
                 child: Icon(
-                  Icons.mic,
+                  EvaIcons.stopCircleOutline,
                   color: Colors.deepPurpleAccent,
                   size: 20.0,
                 ),
@@ -122,9 +118,6 @@ class MicrophonePage extends State<Microphone> {
         setState(() {
           recordingMessage = "Recording";
         });
-//        print("Recording starting");
-//        if (emojiAnimation != null)
-//          emojiAnimation.start();
         print("Recording started");
       })
           .catchError((Object error) {
@@ -138,17 +131,9 @@ class MicrophonePage extends State<Microphone> {
     else {
       print("Already recording");
       setState(() {
-//        emojiAnimation.stopAndReset(rewind: true);
         recordingMessage = "Something is wrong. Try restarting the app";
       });
     }
   }
 
-//  Future animation() async {
-//    var instance = Fluttie();
-//    emojiComposition = await instance.loadAnimationFromAsset(
-//      "assets/animations/voice.json",);
-//    //Replace this string with your actual file
-//    emojiAnimation = await instance.prepareAnimation(emojiComposition);
-//  }
 }

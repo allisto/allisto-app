@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dialogflow/dialogflow_v2.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 class Assistant extends StatefulWidget {
   Assistant({
@@ -25,18 +26,22 @@ class _MedicalAssistantState extends State<Assistant> {
         child: Row(
           children: <Widget>[
             Flexible(
-              child: TextField(
-                controller: _textController,
-                onSubmitted: _handleSubmitted,
-                decoration: InputDecoration.collapsed(hintText: "Ask a query?"),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextField(
+                  controller: _textController,
+                  onSubmitted: _handleSubmitted,
+                  decoration:
+                      InputDecoration.collapsed(hintText: "Ask a query?"),
+                ),
               ),
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 4.0),
               child: IconButton(
                 icon: Icon(
-                  Icons.send,
-                  color: Colors.green,
+                  EvaIcons.paperPlaneOutline,
+                  color: Colors.indigo,
                 ),
                 onPressed: () => _handleSubmitted(_textController.text),
               ),
@@ -88,21 +93,18 @@ class _MedicalAssistantState extends State<Assistant> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Allistic Assistant",
-          style: TextStyle(fontSize: 48),
-        ),
+        title: Text("Assistant", style: TextStyle(fontFamily: "RobotoMono"),),
+        backgroundColor: Colors.pink,
         centerTitle: true,
-        backgroundColor: Colors.green,
       ),
       body: Column(children: <Widget>[
         Flexible(
             child: ListView.builder(
-              padding: EdgeInsets.all(8.0),
-              reverse: true,
-              itemBuilder: (_, int index) => _messages[index],
-              itemCount: _messages.length,
-            )),
+          padding: EdgeInsets.all(8.0),
+          reverse: true,
+          itemBuilder: (_, int index) => _messages[index],
+          itemCount: _messages.length,
+        )),
         Divider(height: 1.0),
         Container(
           decoration: BoxDecoration(color: Theme.of(context).cardColor),
