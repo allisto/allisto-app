@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:allisto_app/pages/github_page.dart';
+import 'package:allisto_app/pages/linkedin_page.dart';
 
 class TeamPage extends StatefulWidget {
   @override
@@ -101,8 +104,10 @@ class _TeamPageState extends State<TeamPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      _buildMemberContainer('Aditya Thakur', 'images/aditya.jpg'),
-                      _buildMemberContainer('Rimjhim Gupta', 'images/rimjhim.jpg'),
+                      _buildMemberContainer(
+                          'Aditya Thakur', 'images/aditya.jpg', 'agenttango', '#'),
+                      _buildMemberContainer(
+                          'Rimjhim Gupta', 'images/rimjhim.jpg', 'rimjhimgolf', '#'),
                     ],
                   ),
                 ),
@@ -111,8 +116,10 @@ class _TeamPageState extends State<TeamPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      _buildMemberContainer('Nedheesh Hasija', 'images/nedd.jpg'),
-                      _buildMemberContainer('Yashovardhan', 'images/yasho.jpg'),
+                      _buildMemberContainer(
+                          'Nedheesh Hasija', 'images/nedd.jpg', 'neddstarkk', '#'),
+                      _buildMemberContainer(
+                          'Yashovardhan', 'images/yasho.jpg', 'yashovardhan99', '#'),
                     ],
                   ),
                 ),
@@ -121,7 +128,8 @@ class _TeamPageState extends State<TeamPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      _buildMemberContainer('Rishi Banerjee', 'images/rishi.jpg'),
+                      _buildMemberContainer(
+                          'Rishi Banerjee', 'images/rishi.jpg', 'rshrc', 'rishi-banerjee-39406915b'),
                     ],
                   ),
                 )
@@ -133,7 +141,8 @@ class _TeamPageState extends State<TeamPage> {
     ));
   }
 
-  Widget _buildMemberContainer(String memberName, String imgPath) {
+  Widget _buildMemberContainer(
+      String memberName, String imgPath, String githubUserName, String linkedInUserName) {
     return Padding(
       padding: EdgeInsets.only(right: 15, top: 10, bottom: 10, left: 4),
       child: AnimatedContainer(
@@ -171,8 +180,47 @@ class _TeamPageState extends State<TeamPage> {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Image.asset(imgPath),
+                child: Image.asset(
+                  imgPath,
+                  height: 100.0,
+                  width: 100.0,
+                ),
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  IconButton(
+                    icon: Icon(FontAwesomeIcons.github),
+                    onPressed: () {
+                      // Go to GithubPage
+                      print("Pressed");
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => GithubPage(
+                                username: githubUserName,
+                              ),
+                        ),
+                      );
+                    },
+                    color: switchIconColor(memberName),
+                  ),
+                  IconButton(
+                    icon: Icon(FontAwesomeIcons.linkedinIn),
+                    onPressed: () {
+                      // Go to LinkedIn Page
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => LinkedInPage(
+                            username: linkedInUserName,
+                            profileName: memberName,
+                          ),
+                        ),
+                      );
+                    },
+                    color: switchIconColor(memberName),
+                  ),
+                ],
+              )
             ],
           ),
         ),
@@ -207,6 +255,12 @@ class _TeamPageState extends State<TeamPage> {
       return Colors.indigo.withOpacity(0.4);
     } else {
       return Colors.transparent;
+    }
+  }
+
+  switchIconColor(memberName) {
+    if (memberName == selectedMember) {
+      return Colors.white;
     }
   }
 }
