@@ -5,7 +5,9 @@ import audiorecorder2.audiorecorder2.AudioRecorder2Plugin;
 import de.simolus3.fluttie.FluttiePlugin;
 import com.dfa.introslider.IntroSliderPlugin;
 import io.flutter.plugins.pathprovider.PathProviderPlugin;
+import io.flutter.plugins.share.SharePlugin;
 import com.ethras.simplepermissions.SimplePermissionsPlugin;
+import io.flutter.plugins.webviewflutter.WebViewFlutterPlugin;
 
 /**
  * Generated file. Do not edit.
@@ -19,7 +21,9 @@ public final class GeneratedPluginRegistrant {
     FluttiePlugin.registerWith(registry.registrarFor("de.simolus3.fluttie.FluttiePlugin"));
     IntroSliderPlugin.registerWith(registry.registrarFor("com.dfa.introslider.IntroSliderPlugin"));
     PathProviderPlugin.registerWith(registry.registrarFor("io.flutter.plugins.pathprovider.PathProviderPlugin"));
+    SharePlugin.registerWith(registry.registrarFor("io.flutter.plugins.share.SharePlugin"));
     SimplePermissionsPlugin.registerWith(registry.registrarFor("com.ethras.simplepermissions.SimplePermissionsPlugin"));
+    WebViewFlutterPlugin.registerWith(registry.registrarFor("io.flutter.plugins.webviewflutter.WebViewFlutterPlugin"));
   }
 
   private static boolean alreadyRegisteredWith(PluginRegistry registry) {
