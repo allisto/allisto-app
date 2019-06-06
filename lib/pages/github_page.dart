@@ -26,7 +26,7 @@ class GithubPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           // Share Profile basically
-          Share.share('Check out this person\'s GitHub Profile ${this.githubUrl}');
+          Share.share('Check out ${this.username}\'s GitHub Profile ${this.githubUrl}');
         },
         label: Text("Share"),
         icon: Icon(Icons.share),

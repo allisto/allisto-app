@@ -28,7 +28,7 @@ class LinkedInPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           // Share Profile basically
-          Share.share('Check out this person\'s LinkedIn Profile ${this.linkedInUrl}');
+          Share.share('Check out ${this.profileName}\'s LinkedIn Profile ${this.linkedInUrl}');
         },
         label: Text("Share"),
         icon: Icon(Icons.share),
