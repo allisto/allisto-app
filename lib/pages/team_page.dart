@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:allisto_app/pages/github_page.dart';
 import 'package:allisto_app/pages/linkedin_page.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TeamPage extends StatefulWidget {
   @override
@@ -197,7 +197,8 @@ class _TeamPageState extends State<TeamPage> {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => GithubPage(
-                                username: githubUserName,
+                            username: githubUserName,
+                            profilename: memberName,
                               ),
                         ),
                       );

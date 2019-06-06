@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 import 'package:share/share.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class GithubPage extends StatelessWidget {
-  String username;
+  String username, profilename;
   String githubUrl = "https://github.com/";
 
-  GithubPage({@required this.username}) {
+  GithubPage({@required this.username, @required this.profilename}) {
     this.githubUrl = this.githubUrl + this.username + "/";
     print(this.githubUrl);
   }
@@ -15,7 +15,7 @@ class GithubPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("${this.username}"),
+        title: Text("${this.profilename}"),
         backgroundColor: Colors.black87,
         centerTitle: true,
       ),
@@ -26,7 +26,8 @@ class GithubPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           // Share Profile basically
-          Share.share('Check out ${this.username}\'s GitHub Profile ${this.githubUrl}');
+          Share.share('Check out ${this.profilename}\'s GitHub Profile ${this
+              .githubUrl}');
         },
         label: Text("Share"),
         icon: Icon(Icons.share),
