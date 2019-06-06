@@ -119,7 +119,7 @@ class _TeamPageState extends State<TeamPage> {
                       _buildMemberContainer(
                           'Nedheesh Hasija', 'images/nedd.jpg', 'neddstarkk', '#'),
                       _buildMemberContainer(
-                          'Yashovardhan', 'images/yasho.jpg', 'yashovardhan99', '#'),
+                          'Yashovardhan', 'images/yasho.jpg', 'yashovardhan99', 'yashovardhan99'),
                     ],
                   ),
                 ),
