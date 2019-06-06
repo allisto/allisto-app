@@ -117,7 +117,7 @@ class _TeamPageState extends State<TeamPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       _buildMemberContainer(
-                          'Nedheesh Hasija', 'images/nedd.jpg', 'neddstarkk', '#'),
+                          'Nedheesh Hasija', 'images/nedd.jpg', 'neddstarkk', 'nedheesh-hasija'),
                       _buildMemberContainer(
                           'Yashovardhan', 'images/yasho.jpg', 'yashovardhan99', 'yashovardhan99'),
                     ],
