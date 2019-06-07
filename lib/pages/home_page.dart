@@ -51,7 +51,39 @@ class _HomePageState extends State<HomePage>
                   ),
                 ),
               ),
-            )
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: IconButton(
+                    icon: Icon(
+                      FontAwesomeIcons.podcast,
+                      color: Colors.deepPurpleAccent,
+                    ),
+                    onPressed: () {
+                      print("News List");
+                      Navigator.of(context).pushNamed("/news_list");
+                    },
+                    tooltip: "Medical News",
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: IconButton(
+                    icon: Icon(
+                      EvaIcons.messageCircleOutline,
+                      color: Colors.deepPurpleAccent,
+                    ),
+                    onPressed: () {
+                      print("Assistant");
+                      Navigator.of(context).pushNamed("/assistant");
+                    },
+                    tooltip: "AI Assistant",
+                  ),
+                )
+              ],),
           ],
         ),
       ),
@@ -146,43 +178,14 @@ class _HomePageState extends State<HomePage>
             ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: IconButton(
-                icon: Icon(
-                  FontAwesomeIcons.podcast,
-                  color: Colors.deepPurpleAccent,
-                ),
-                onPressed: () {
-                  print("News List");
-                  Navigator.of(context).pushNamed("/news_list");
-                },
-                tooltip: "Medical News",
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: IconButton(
-                icon: Icon(
-                  EvaIcons.messageCircleOutline,
-                  color: Colors.deepPurpleAccent,
-                ),
-                onPressed: () {
-                  print("Assistant");
-                  Navigator.of(context).pushNamed("/assistant");
-                },
-                tooltip: "AI Assistant",
-              ),
-            )
-          ],
-        ),
-      ),
+//      bottomNavigationBar: BottomAppBar(
+//        shape: CircularNotchedRectangle(),
+//        child: Row(
+//          mainAxisSize: MainAxisSize.max,
+//          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//
+//        ),
+//      ),
     );
   }
 }
