@@ -1,9 +1,10 @@
-import 'package:audio_recorder2/audio_recorder2.dart';
-import 'package:flutter/material.dart';
-import 'package:simple_permissions/simple_permissions.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'dart:math' as math;
+
+import 'package:audio_recorder2/audio_recorder2.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:simple_permissions/simple_permissions.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -77,7 +78,7 @@ class _HomePageState extends State<HomePage>
                     icons[index],
                   ),
                   backgroundColor: Colors.deepPurpleAccent,
-                  onPressed: () {
+                  onPressed: () async {
                     if(index==0) {
                       // Redirect to Gihub Repo/Organization
                     } else if(index == 1) {
@@ -85,9 +86,30 @@ class _HomePageState extends State<HomePage>
                       Navigator.of(context).pushNamed('/team_page');
                     } else {
                       // Recording through mic
-                      setState(() {
-
-                      });
+                      bool hasPermissions = await AudioRecorder2.hasPermissions;
+                      if (hasPermissions) {
+                        Navigator.of(context).pushNamed("/mic");
+                      }
+                      else {
+                        bool audioPermission = await SimplePermissions
+                            .checkPermission(
+                            Permission.RecordAudio);
+                        bool storagePermission = await SimplePermissions
+                            .checkPermission(
+                            Permission.WriteExternalStorage);
+                        if (!audioPermission) {
+                          await SimplePermissions.requestPermission(
+                              Permission.RecordAudio);
+                        }
+                        if (!storagePermission) {
+                          await SimplePermissions.requestPermission(
+                              Permission.WriteExternalStorage);
+                        }
+                        hasPermissions = await AudioRecorder2.hasPermissions;
+                        if (hasPermissions) {
+                          Navigator.of(context).pushNamed("/mic");
+                        }
+                      }
                     }
                   },
                 ),
@@ -103,10 +125,12 @@ class _HomePageState extends State<HomePage>
                   builder: (BuildContext context, Widget child) {
                     return Transform(
                       transform:
-                          Matrix4.rotationZ(_controller.value * 0.5 * math.pi),
+                      Matrix4.rotationZ(_controller.value * 0.5 * math.pi),
                       alignment: FractionalOffset.center,
                       child: Icon(
-                          _controller.isDismissed ? EvaIcons.activityOutline : EvaIcons.closeCircleOutline,),
+                        _controller.isDismissed
+                            ? EvaIcons.activityOutline
+                            : EvaIcons.closeCircleOutline,),
                     );
                   },
                 ),
@@ -122,34 +146,6 @@ class _HomePageState extends State<HomePage>
             ),
         ),
       ),
-//      FloatingActionButton(
-//        heroTag: "mic",
-//        onPressed: () async {
-//          bool hasPermissions = await AudioRecorder2.hasPermissions;
-//          if(hasPermissions) {
-//            Navigator.of(context).pushNamed("/mic");
-//          }
-//          else {
-//            bool audioPermission = await SimplePermissions.checkPermission(
-//                Permission.RecordAudio);
-//            bool storagePermission = await SimplePermissions.checkPermission(
-//                Permission.WriteExternalStorage);
-//            if (!audioPermission) {
-//              await SimplePermissions.requestPermission(Permission.RecordAudio);
-//            }
-//            if (!storagePermission) {
-//              await SimplePermissions.requestPermission(
-//                  Permission.WriteExternalStorage);
-//            }
-//            hasPermissions = await AudioRecorder2.hasPermissions;
-//            if (hasPermissions) {
-//              Navigator.of(context).pushNamed("/mic");
-//            }
-//          }
-//        },
-//        backgroundColor: Colors.deepPurpleAccent,
-//        child: Icon(Icons.mic_none,color: Colors.white,),
-//      ),
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         child: Row(
