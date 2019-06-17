@@ -1,6 +1,7 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:intro_slider/slide_object.dart';
 
 class IntroScreen extends StatefulWidget {
   IntroScreen({Key key}) : super(key: key);
@@ -25,7 +26,7 @@ class IntroScreenState extends State<IntroScreen> {
             fontWeight: FontWeight.bold,
             fontFamily: 'RobotoMono'),
         description:
-            "Treat your infant's autism at with Allisto :)",
+        "Treat your infant's autism at with Allisto :)",
         styleDescription: TextStyle(
             color: Colors.pink,
             fontSize: 20.0,
@@ -43,7 +44,7 @@ class IntroScreenState extends State<IntroScreen> {
             fontWeight: FontWeight.bold,
             fontFamily: 'RobotoMono'),
         description:
-            "Early and easy diagnosis right at your home.",
+        "Early and easy diagnosis right at your home.",
         styleDescription: TextStyle(
             color: Colors.pink,
             fontSize: 20.0,
@@ -61,7 +62,7 @@ class IntroScreenState extends State<IntroScreen> {
             fontWeight: FontWeight.bold,
             fontFamily: 'RobotoMono'),
         description:
-            "Powered and accompnaied by a smart AI",
+        "Powered and accompnaied by a smart AI",
         styleDescription: TextStyle(
             color: Colors.pink,
             fontSize: 20.0,
@@ -122,11 +123,11 @@ class IntroScreenState extends State<IntroScreen> {
             children: <Widget>[
               GestureDetector(
                   child: Image.asset(
-                currentSlide.pathImage,
-                width: 200.0,
-                height: 200.0,
-                fit: BoxFit.contain,
-              )),
+                    currentSlide.pathImage,
+                    width: 200.0,
+                    height: 200.0,
+                    fit: BoxFit.contain,
+                  )),
               Container(
                 child: Text(
                   currentSlide.title,
