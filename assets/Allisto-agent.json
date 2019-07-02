@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "allisto-agent-kxlrwg",
+  "private_key_id": "1f6440a232920d299449c7e662df1e8c57b842d3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCH6AV2WzIpIs/P\nwCaoaqWbX1p+VEzGg9OU+RufBXG2kjYeNGALJ/hFLUKuhkJs5E0kfrJOtIQpHIpC\n4NCzftg/IHXY26LyiQMUoWJZ+iWqBHWVfED6sIA5xUpsPtaf6B59kVgPtpjqS6T4\nYYTvNOwdoM+j460Eqb6z8kEsolN4k8MKsUCQSGjPkrO6Ba3Qn3qzYCj0HVVmwwck\nmLsm/SaNrlnjPixA9xbHhfp5LUnAmJBBY/qvkPmovhB5Vqxwznyu0byqoE0UHvY4\nhsiHo591wwR+pit7WNqTQK6TQ/nJs9vckXPiJF6G865gKou7tkurWwsX3QFIHNjj\nM26BlwShAgMBAAECggEAKzIluk6WDNkRr/hk0RbEeDPAcXKdzGLN9wWOL+btE5g5\nNzRyallT4bjW/t2Rc0bE9hqG1dkuQFrf3w3Rh5uDY90PV9PHYMsHfaElv29wVS+B\np/eMN6Gtv67jTrBSSxTdzA9MLAJfa+iLEJ7+P4FUor4gAPk2XssM3+jZqjQVz7bA\nrPlif8WwOUjh306ox8FmrIyh99PgWwh2k80RCULPFiV5Q7OHOogrUOnP/paYv43s\nhOfyyv6Pz8fcVwPVT6dHpirrKXkikPIwSNHKPB+vM3cqXOfhr1+R7DbMws9LiUE9\ncBPkQ0OkXy6cVSWDuD1cnnSnzTvQZP77MjyaR4zIWQKBgQC8tNV5u2xhr5/UrzJ3\na4MKV8gG2TjVubPxWHDoGKq7EaRd+a178lPo2ZXU9TKw/RegNbjugMJuGeDeuauX\n0qdyZ0YIZGWdVwlXEeIVbdLK8All8RrUiVqjHrbKWrYcN8X+vnilf0QpvU13uUWh\njm0HoCdYid3oVLhGn/RYX+ptewKBgQC4Xwas1hYPpF8uSSDu4wgnuYXQl6M8nFvt\nQw2WXTNrmH7kuBN3k3GtYz6FUrzvD92BOqJ5D3NkkfDIdkuIyfJZbwOdBFOowcUb\ndr+aB8ZqpHhWT8WchAHKE8IxL3vFOqktzBtCj7X1MHR+htG7VKAYnP6Tu5jTLtW1\n3TFp5ehFkwKBgCDcDGBKNrE798T9TPhmjEb8yiQHJ1JwJ9la4S5JPVGd3NVQaNkw\ndVQSr3iJye3v5HFNaYp+eVzavMGL60lgsS/Gs/c6JEelpEa5InlAynf0HG7X8SgZ\nUuMcsg/Cg/ud6qhVWoTXCHOMNzUl2e4r8uhlBvTv7OhL+Fqz98R7z0KJAoGAN3lo\nIcL8ulIjzWJ1hUtMXd+FcuDdXdRSGI6PXQnH+fzVWW5FdToo/xmYazcc3/VvGX4R\n+sj6WG1M/JQTYCIbSGuNs8XkgidjbkMJnYfvXJEGIDo6ZECX5TyStofp/ssKslvy\na9Gf1xlwQ82+91WcIivCsaLFde1moiTexFVH0P8CgYEAkWmndOFlDnbSxqHajJhk\nwN8jy23wCwjhqMzjzuw2Ru4gqdAOQc8ZTOdCGe2ppMhs9H2E85l8H4/5QMNGFoXl\npGi4kj+fGJ4pyV+uK+eLzkB10kV9xuBGuwbb1K+TEtxEHeU37iQuxlUVoz2tV9Re\nHWBTMq+BY7AzU81SFs3CTbM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "dialogflow-njkoup@allisto-agent-kxlrwg.iam.gserviceaccount.com",
+  "client_id": "106091357035535425876",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow-njkoup%40allisto-agent-kxlrwg.iam.gserviceaccount.com"
+}

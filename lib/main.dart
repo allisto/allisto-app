@@ -6,6 +6,7 @@ import 'package:allisto_app/pages/news_list_page.dart';
 import 'package:allisto_app/pages/news_detail_page.dart';
 import 'package:allisto_app/pages/intro_screen.dart';
 import 'package:allisto_app/pages/team_page.dart';
+import 'package:allisto_app/pages/bot.dart';
 
 void main() => runApp(Allisto());
 
@@ -16,7 +17,7 @@ class Allisto extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/home': (context) => HomePage(),
         '/mic': (context) => Microphone(),
-        '/assistant': (context) => Assistant(),
+        '/assistant': (context) => Bot_window(),//Assistant(),
         '/news_list': (context) => NewsList(),
         '/news_detail' : (BuildContext context) => NewsDetailPage(),
         '/intro_screen': (BuildContext context) => IntroScreen(),

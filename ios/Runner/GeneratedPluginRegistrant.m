@@ -7,6 +7,7 @@
 #import <fluttie/FluttiePlugin.h>
 #import <intro_slider/IntroSliderPlugin.h>
 #import <path_provider/PathProviderPlugin.h>
+#import <permission_handler/PermissionHandlerPlugin.h>
 #import <share/SharePlugin.h>
 #import <simple_permissions/SimplePermissionsPlugin.h>
 #import <webview_flutter/WebViewFlutterPlugin.h>
@@ -18,6 +19,7 @@
   [FluttiePlugin registerWithRegistrar:[registry registrarForPlugin:@"FluttiePlugin"]];
   [IntroSliderPlugin registerWithRegistrar:[registry registrarForPlugin:@"IntroSliderPlugin"]];
   [FLTPathProviderPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTPathProviderPlugin"]];
+  [PermissionHandlerPlugin registerWithRegistrar:[registry registrarForPlugin:@"PermissionHandlerPlugin"]];
   [FLTSharePlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTSharePlugin"]];
   [SimplePermissionsPlugin registerWithRegistrar:[registry registrarForPlugin:@"SimplePermissionsPlugin"]];
   [FLTWebViewFlutterPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTWebViewFlutterPlugin"]];

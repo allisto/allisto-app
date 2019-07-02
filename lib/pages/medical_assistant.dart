@@ -39,6 +39,7 @@ class _MedicalAssistantState extends State<Assistant> {
             Container(
               margin: EdgeInsets.symmetric(horizontal: 4.0),
               child: IconButton(
+                splashColor: Colors.indigo,
                 icon: Icon(
                   EvaIcons.paperPlaneOutline,
                   color: Colors.indigo,
@@ -77,6 +78,7 @@ class _MedicalAssistantState extends State<Assistant> {
   }
 
   void _handleSubmitted(String text) {
+    if (text=="") return;
     _textController.clear();
     AssistantResponse message = AssistantResponse(
       text: text,
@@ -154,24 +156,16 @@ class AssistantResponse extends StatelessWidget {
 
   List<Widget> message(context) {
     return <Widget>[
-      Expanded(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            Text(this.name, style: Theme.of(context).textTheme.subhead),
-            Container(
-              margin: const EdgeInsets.only(top: 5.0),
-              child: Text(text),
-            ),
-          ],
+      Card(
+        child: Container(
+          child: Row(
+            textDirection: TextDirection.ltr,
+            children: <Widget>[
+              Text(text)
+            ],
+          ),
         ),
-      ),
-      Container(
-        margin: const EdgeInsets.only(left: 16.0),
-        child: CircleAvatar(
-          child: Text(this.name[0]),
-        ),
-      ),
+      )
     ];
   }
 
