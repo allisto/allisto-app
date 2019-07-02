@@ -53,7 +53,7 @@ class _TeamPageState extends State<TeamPage> {
                     ),
                     child: Center(
                       child: Icon(
-                        EvaIcons.barChart2Outline,
+                        EvaIcons.star,
                         size: 20.0,
                         color: Colors.white,
                       ),
@@ -71,7 +71,7 @@ class _TeamPageState extends State<TeamPage> {
                       ),
                       child: Center(
                         child: Text(
-                          "0",
+                          "5", // TODO GET IT FROM GITHUB API
                           style: TextStyle(
                             color: Colors.deepPurple,
                           ),
