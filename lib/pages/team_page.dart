@@ -126,13 +126,15 @@ class _TeamPageState extends State<TeamPage> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       _buildMemberContainer(
                           'Rishi Banerjee', 'images/rishi.jpg', 'rshrc', 'rishi-banerjee-39406915b'),
+                      _buildMemberContainer(
+                          'Dhruv Bhargava', 'images/dhruv.jpeg', 'dhruvbhargava', '#'),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),
