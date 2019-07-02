@@ -23,6 +23,7 @@ dependencies:
   intro_slider: 
   webview_flutter:
   share: ^0.6.1+1
+  permission_handler: ^3.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -64,6 +65,7 @@ flutter:
   assets:
    - images/
    - assets/
+
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -86,6 +88,7 @@ flutter:
       fonts:
         - asset: fonts/Raleway-Regular.ttf
         - asset: fonts/Raleway-Bold.ttf
+
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

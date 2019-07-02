@@ -22,15 +22,15 @@ class IntroScreenState extends State<IntroScreen> {
         title: "Autism",
         styleTitle: TextStyle(
             color: Colors.indigo,
-            fontSize: 30.0,
+            fontSize: 50.0,
             fontWeight: FontWeight.bold,
             fontFamily: 'RobotoMono'),
         description:
         "Treat your infant's autism at with Allisto :)",
         styleDescription: TextStyle(
-            color: Colors.pink,
+            color: Colors.white,
             fontSize: 20.0,
-            fontStyle: FontStyle.italic,
+            fontWeight:FontWeight.w100,
             fontFamily: 'Raleway'),
         pathImage: "images/brain_image.png",
       ),
