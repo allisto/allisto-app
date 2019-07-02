@@ -195,7 +195,7 @@ class ChatMessage extends StatelessWidget {
   }
 }
 
-//==========FAQ BAR=========//
+//==========FAQ_BUTTON=========//
 
 class FAQ_button extends StatelessWidget {
   @override
