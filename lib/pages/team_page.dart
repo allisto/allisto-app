@@ -18,7 +18,7 @@ class _TeamPageState extends State<TeamPage> {
         body: ListView(
       children: <Widget>[
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Padding(
               padding: EdgeInsets.only(top: 15),
@@ -31,6 +31,9 @@ class _TeamPageState extends State<TeamPage> {
                   Navigator.of(context).pop();
                 },
               ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.55,
             ),
             Padding(
               padding: EdgeInsets.only(top: 15, right: 15),
@@ -81,6 +84,18 @@ class _TeamPageState extends State<TeamPage> {
                   )
                 ],
               ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: IconButton(
+                  icon: Icon(
+                    Icons.info,
+                    color: Colors.deepPurpleAccent,
+                    size: 40,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pushNamed("/info_page");
+                  }),
             )
           ],
         ),
@@ -104,10 +119,10 @@ class _TeamPageState extends State<TeamPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      _buildMemberContainer(
-                          'Aditya Thakur', 'images/aditya.jpg', 'agenttango', '#'),
-                      _buildMemberContainer(
-                          'Rimjhim Gupta', 'images/rimjhim.jpg', 'rimjhimgolf', '#'),
+                      _buildMemberContainer('Aditya Thakur',
+                          'images/aditya.jpg', 'agenttango', '#'),
+                      _buildMemberContainer('Rimjhim Gupta',
+                          'images/rimjhim.jpg', 'rimjhimgolf', '#'),
                     ],
                   ),
                 ),
@@ -116,10 +131,10 @@ class _TeamPageState extends State<TeamPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      _buildMemberContainer(
-                          'Nedheesh Hasija', 'images/nedd.jpg', 'neddstarkk', 'nedheesh-hasija'),
-                      _buildMemberContainer(
-                          'Yashovardhan', 'images/yasho.jpg', 'yashovardhan99', 'yashovardhan99'),
+                      _buildMemberContainer('Nedheesh Hasija',
+                          'images/nedd.jpg', 'neddstarkk', 'nedheesh-hasija'),
+                      _buildMemberContainer('Yashovardhan', 'images/yasho.jpg',
+                          'yashovardhan99', 'yashovardhan99'),
                     ],
                   ),
                 ),
@@ -129,7 +144,10 @@ class _TeamPageState extends State<TeamPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       _buildMemberContainer(
-                          'Rishi Banerjee', 'images/rishi.jpg', 'rshrc', 'rishi-banerjee-39406915b'),
+                          'Rishi Banerjee',
+                          'images/rishi.jpg',
+                          'rshrc',
+                          'rishi-banerjee-39406915b'),
                     ],
                   ),
                 )
@@ -141,8 +159,8 @@ class _TeamPageState extends State<TeamPage> {
     ));
   }
 
-  Widget _buildMemberContainer(
-      String memberName, String imgPath, String githubUserName, String linkedInUserName) {
+  Widget _buildMemberContainer(String memberName, String imgPath,
+      String githubUserName, String linkedInUserName) {
     return Padding(
       padding: EdgeInsets.only(right: 15, top: 10, bottom: 10, left: 4),
       child: AnimatedContainer(
@@ -197,8 +215,8 @@ class _TeamPageState extends State<TeamPage> {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => GithubPage(
-                            username: githubUserName,
-                            profilename: memberName,
+                                username: githubUserName,
+                                profilename: memberName,
                               ),
                         ),
                       );
@@ -212,9 +230,9 @@ class _TeamPageState extends State<TeamPage> {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => LinkedInPage(
-                            username: linkedInUserName,
-                            profileName: memberName,
-                          ),
+                                username: linkedInUserName,
+                                profileName: memberName,
+                              ),
                         ),
                       );
                     },

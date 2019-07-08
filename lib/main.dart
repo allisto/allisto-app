@@ -7,6 +7,7 @@ import 'package:allisto_app/pages/news_detail_page.dart';
 import 'package:allisto_app/pages/intro_screen.dart';
 import 'package:allisto_app/pages/team_page.dart';
 import 'package:allisto_app/pages/bot.dart';
+import 'package:allisto_app/pages/info_page.dart';
 
 void main() => runApp(Allisto());
 
@@ -22,6 +23,7 @@ class Allisto extends StatelessWidget {
         '/news_detail' : (BuildContext context) => NewsDetailPage(),
         '/intro_screen': (BuildContext context) => IntroScreen(),
         '/team_page': (BuildContext context) => TeamPage(),
+        '/info_page': (BuildContext context) => InfoPage(),
       },
       debugShowCheckedModeBanner: false,
       title: "Allisto",
