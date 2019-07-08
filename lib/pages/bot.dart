@@ -1,16 +1,29 @@
 import "package:flutter/material.dart";
 import 'package:flutter_dialogflow/dialogflow_v2.dart';
+import 'package:allisto_app/BLoC/bot_barrel.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bloc/bloc.dart';
 
+
+Bot_bloc _bloc =Bot_bloc();
+List<Widget> _messages = new List();
 
 class Bot_window extends StatefulWidget {
   _ChatWindowState createState() => _ChatWindowState();
 }
 
 class _ChatWindowState extends State<Bot_window> {
-  List<Widget> _messages = new List();
+
   TextEditingController _controller = TextEditingController();
 
-  void _queryHandler(text) {
+
+  @override
+  void initState() {
+    super.initState();
+    _bloc.dispatch(Awaiting());
+  }
+
+   _queryHandler(text) {
     if (text.length < 1) return; // no empty messages
     ChatMessage message = new ChatMessage(
       sender: true,
@@ -20,26 +33,23 @@ class _ChatWindowState extends State<Bot_window> {
       _messages.insert(0, message);
     });
     _controller.clear();
-    _getResponse(text.toString());
+    _bloc.dispatch(Fetching(query:text));
   }
 
-  void _getResponse(query) async
-  {
-    AuthGoogle auth=await AuthGoogle(fileJson: "assets/Allisto-agent.json").build();
-    Dialogflow dialog=Dialogflow(authGoogle: auth);
-    AIResponse response= await dialog.detectIntent(query);
-    ChatMessage Response_Message=ChatMessage(
-      text: response.getMessage(),
-      sender: false,
-    );
-    setState(() {
-      _messages.insert(0, Response_Message);
-    });
-  }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocBuilder(
+      bloc: _bloc,
+        builder: (BuildContext context, BotState state) {
+        print(state.toString());
 
+        if(state is just_finished)
+          {
+            _messages.insert(0, ChatMessage(text:message,sender: false));
+            _bloc.dispatch(Awaiting());
+
+          }
+        return Scaffold(
       backgroundColor: Color.fromRGBO(206, 241, 255, 1),
       appBar: AppBar(
         centerTitle: true,
@@ -124,7 +134,12 @@ class _ChatWindowState extends State<Bot_window> {
           ],
         ),
       ),
-    );
+    );});
+  }
+  @override
+  void dispose() {
+    _bloc.dispose();
+    super.dispose();
   }
 }
 
@@ -196,23 +211,38 @@ class ChatMessage extends StatelessWidget {
 }
 
 //==========FAQ_BUTTON=========//
-
-class FAQ_button extends StatelessWidget {
-  @override
+class FAQ_button extends StatefulWidget
+{
   String FAQ;
   FAQ_button({this.FAQ});
+  _FAQ_button_State createState()=>_FAQ_button_State();
+}
+
+class _FAQ_button_State extends State<FAQ_button> {
+  @override
+
+  void ExportFAQ()
+  {
+    _messages.insert(0, ChatMessage(sender: true,text: widget.FAQ,));
+   // _bloc.dispatch(display_query(query: widget.FAQ));
+  }
   Widget build(BuildContext context) {
-    return Padding(
+    return BlocBuilder(bloc: _bloc, builder: (BuildContext context, BotState state){
+      if(state is Busy)
+        {
+          print("looool");
+        }
+      return Padding(
       padding: const EdgeInsets.all(8.0),
       child: FlatButton(
         splashColor: Colors.deepPurpleAccent,
         color: Colors.white,
-        child: Text(FAQ,style: TextStyle(color: Colors.black54),),
+        child: Text(widget.FAQ,style: TextStyle(color: Colors.black54),),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
         onPressed: (){
-
+          ExportFAQ();
         },
       ),
-    );
+    );});
   }
 }
