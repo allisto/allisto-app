@@ -1,4 +1,4 @@
-package com.example.allistoapp;
+package com.projectallisto.allisto;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
