@@ -5,26 +5,25 @@ abstract class BotEvent extends Equatable {
   BotEvent([List props = const []]) : super(props);
 }
 
-class Awaiting extends BotEvent
-{
+class Awaiting extends BotEvent {
   @override
   String toString() => 'Awaiting';
 }
 
-class display_query extends BotEvent
-{
+class DisplayQuery extends BotEvent {
   String query;
-  display_query({ @required this.query});
+
+  DisplayQuery({@required this.query});
+
   @override
-  String toString()=>'display_query';
+  String toString() => 'display_query';
 }
 
-
-class Fetching extends BotEvent
-{
+class Fetching extends BotEvent {
   String query;
-  Fetching({ @required this.query});
+
+  Fetching({@required this.query});
+
   @override
   String toString() => 'Fetching';
 }
-

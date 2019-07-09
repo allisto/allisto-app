@@ -178,14 +178,6 @@ class _HomePageState extends State<HomePage>
             ),
         ),
       ),
-//      bottomNavigationBar: BottomAppBar(
-//        shape: CircularNotchedRectangle(),
-//        child: Row(
-//          mainAxisSize: MainAxisSize.max,
-//          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//
-//        ),
-//      ),
     );
   }
 }

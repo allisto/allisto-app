@@ -18,7 +18,7 @@ class Allisto extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/home': (context) => HomePage(),
         '/mic': (context) => Microphone(),
-        '/assistant': (context) => Bot_window(),//Assistant(),
+        '/assistant': (context) => BotWindow(),//Assistant(),
         '/news_list': (context) => NewsList(),
         '/news_detail' : (BuildContext context) => NewsDetailPage(),
         '/intro_screen': (BuildContext context) => IntroScreen(),

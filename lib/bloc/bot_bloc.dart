@@ -6,19 +6,19 @@ import 'package:meta/meta.dart';
 
 // BLoC Logic
 var message;
-class Bot_bloc extends Bloc<BotEvent,BotState> {
+class BotBloc extends Bloc<BotEvent,BotState> {
   BotState get initialState => Idle();
 
   @override
   Stream<BotState> mapEventToState(BotEvent event) async* {
     if (event is Awaiting)
       yield Idle();
-    if (event is display_query) {
+    if (event is DisplayQuery) {
       Busy(query: event.query);
     }
     if (event is Fetching) {
       message = await Fetch(event.query);
-      yield just_finished();
+      yield JustFinished();
     }
   }
 

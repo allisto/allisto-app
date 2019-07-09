@@ -20,9 +20,6 @@ class MicrophonePage extends State<Microphone> {
   bool isRecording;
   String recordingMessage;
 
-//  int emojiComposition;
-//  FluttieAnimationController emojiAnimation;
-
   @override
   void initState() {
 //    animation();

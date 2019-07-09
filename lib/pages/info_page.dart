@@ -14,10 +14,12 @@ class _InfoPageState extends State<InfoPage> {
           iconTheme: IconThemeData(color: Colors.deepPurpleAccent),
           backgroundColor: Colors.white,
           elevation: 0.0,
+          title: Text("Expected Features", style: TextStyle(color: Colors.deepPurpleAccent)),
+          centerTitle: true,
         ),
         body: Center(child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text("A django app that takes input a audio file and returns predicted values",style: TextStyle(color: Colors.black54),textAlign: TextAlign.center,),
+          child: Text("Return of predicted value from django server",style: TextStyle(color: Colors.black54),textAlign: TextAlign.center,),
         )),
       ),
     );
