@@ -121,26 +121,31 @@ class _ChatWindowState extends State<BotWindow> {
                       child: Row(
                         children: <Widget>[
                           FAQ_button(
-                            FAQ: "dummy_Question",
+                            FAQ: "hey",
+                            ontap: (){
+                              _queryHandler("hey");
+                          },
+                          ),
+                          FAQ_button(
+                            FAQ: "What is Allisto?",//what is displayed
+                            ontap: (){
+                              _queryHandler("What is Allisto");//what the question is
+                            },
+                          ),
+                          FAQ_button(
+                            FAQ: "how Does it work?",
+                            ontap: (){
+                              _queryHandler("how Does it work?");
+                            },
                           ),
                           FAQ_button(
                             FAQ: "dummy_Question",
+                            ontap: (){
+                              _queryHandler("dummy_Question");
+                            },
                           ),
-                          FAQ_button(
-                            FAQ: "dummy_Question",
-                          ),
-                          FAQ_button(
-                            FAQ: "dummy_Question",
-                          ),
-                          FAQ_button(
-                            FAQ: "dummy_Question",
-                          ),
-                          FAQ_button(
-                            FAQ: "dummy_Question",
-                          ),
-                          FAQ_button(
-                            FAQ: "dummy_Question",
-                          ),
+
+
                         ],
                       ),
                     ),
@@ -232,47 +237,33 @@ class ChatMessage extends StatelessWidget {
 //==========FAQ_BUTTON=========//
 class FAQ_button extends StatefulWidget {
   String FAQ;
-
-  FAQ_button({this.FAQ});
+  VoidCallback ontap;
+  FAQ_button({this.FAQ,this.ontap});
+  String get Query=>FAQ;
 
   _FAQ_button_State createState() => _FAQ_button_State();
 }
 
 class _FAQ_button_State extends State<FAQ_button> {
   @override
-  void ExportFAQ() {
-    _messages.insert(
-        0,
-        ChatMessage(
-          sender: true,
-          text: widget.FAQ,
-        ));
+
     // _bloc.dispatch(display_query(query: widget.FAQ));
-  }
+
 
   Widget build(BuildContext context) {
-    return BlocBuilder(
-        bloc: _bloc,
-        builder: (BuildContext context, BotState state) {
-          if (state is Busy) {
-            print("looool");
-          }
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: FlatButton(
-              splashColor: Colors.deepPurpleAccent,
-              color: Colors.white,
-              child: Text(
-                widget.FAQ,
-                style: TextStyle(color: Colors.black54),
-              ),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0)),
-              onPressed: () {
-                ExportFAQ();
-              },
-            ),
-          );
-        });
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: FlatButton(
+        splashColor: Colors.deepPurpleAccent,
+        color: Colors.white,
+        child: Text(
+          widget.FAQ,
+          style: TextStyle(color: Colors.black54),
+        ),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0)),
+        onPressed:widget.ontap
+      ),
+    );
   }
 }
