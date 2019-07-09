@@ -24,7 +24,8 @@ dependencies:
   webview_flutter:
   share: ^0.6.1+1
   permission_handler: ^3.1.0
-
+  flutter_bloc:
+  equatable:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
@@ -38,6 +39,7 @@ dependencies:
   eva_icons_flutter:
 
   font_awesome_flutter:
+  flutter_dialogflow_v2: ^0.1.0
 
 dev_dependencies:
   flutter_launcher_icons: "^0.7.2"
