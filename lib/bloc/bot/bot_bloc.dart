@@ -1,8 +1,7 @@
 import 'package:flutter_dialogflow/dialogflow_v2.dart';
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'bot_barrel.dart';
-import 'package:meta/meta.dart';
+import 'package:allisto_app/bloc/bot/bot_barrel.dart';
 
 // BLoC Logic
 var message;
