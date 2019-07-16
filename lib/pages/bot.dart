@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:flutter_dialogflow/dialogflow_v2.dart';
-import 'package:allisto_app/bloc/bot_barrel.dart';
+import 'package:allisto_app/bloc/bot/bot_barrel.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc/bloc.dart';
 
